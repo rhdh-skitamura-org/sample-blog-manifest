@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: django-mysql-conf
+data:
+  MYSQL_USER: sampleblog
+  MYSQL_DATABASE: sampleblog
+  MYSQL_HOST: mysql
+  MYSQL_PORT: "3306"
+  BLOG_ADMIN_USER: admin
+  BLOG_ADMIN_EMAIL: admin@sample.com

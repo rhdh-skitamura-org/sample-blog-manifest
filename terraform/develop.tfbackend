@@ -1,0 +1,3 @@
+bucket = "skitamura-terraform-tfstate"
+key    = "component:default/eks-sample-004-sample-blog/terraform.tfstate"
+region = "ap-northeast-1"

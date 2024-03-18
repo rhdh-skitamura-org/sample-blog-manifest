@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    app.openshift.io/connects-to: django
+  labels:
+    app: sample-blog
+    app.kubernetes.io/part-of: sample-blog
+  name: nginx
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: image-registry.openshift-image-registry.svc:5000/sample-blog/nginx:latest 
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+      serviceAccountName: sample-blog
